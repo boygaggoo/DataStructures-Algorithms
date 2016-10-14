@@ -11,7 +11,7 @@ public class MaxDonor {
         		 myMap.put(orgs[i], myMap.get(orgs[i]) + amount[i]); //if key exists, update value
         		 }
          }
-         int maxValueInMap=(Collections.max(myMap.values()));  //return max value in the Hashmap
+         int maxValueInMap= Collections.max(myMap.values());  //return max value in the Hashmap
          for (java.util.Map.Entry<String, Integer> entry : myMap.entrySet()) {  //iterate through hashmap
              if (entry.getValue()==maxValueInMap) {
                  answer = entry.getKey();
