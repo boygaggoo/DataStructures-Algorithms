@@ -14,11 +14,11 @@ public class SpreadingNews {
 	          subTimes.add(getTime(supervisors, i)); //recurse through all supervisors and subordinates
 	      }
 	      Collections.sort(subTimes,Collections.reverseOrder());
-	      int res = 0;
+	      int ans = 0;
           for (int i = 0; i < subTimes.size(); i++) {
-        	  res = Math.max(res, i + 1 + subTimes.get(i));
+        	  ans = Math.max(ans, i + 1 + subTimes.get(i)); //update ans if higher max found
           }
-          return res;
+          return ans;
         }
      
 	 //find subordinates to specific supervisors
