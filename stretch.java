@@ -3,6 +3,7 @@
  * in the original list with n copies of that integer.
  */
 
+
 public void stretch(int n){
     if(n<=0){
         front = null;
