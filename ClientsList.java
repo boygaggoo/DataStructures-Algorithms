@@ -15,7 +15,6 @@ public class ClientsList {
 		}
 		return ans;
    }
-
 	 public class Person implements Comparable<Person>{
 			String first;
 			String last;
