@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class TreeCount {
         public int count(TreeNode tree) {
         	if (tree == null){
@@ -8,19 +10,16 @@ public class TreeCount {
         if ( tree.right != null ) c += count(tree.right); 
         return c;
         }
-//        public class TreeNode {
-//      	  
-//            int info;
-//            TreeNode left;
-//            TreeNode right;
-//            TreeNode(int x){
-//                info = x;
-//            }
-//            TreeNode(int x, TreeNode lNode, TreeNode rNode){
-//                info = x;
-//         	  left = lNode;
-//                right = rNode;
-//            }
-//        }
-
+        public class TreeNode {
+      	  
+            int info;
+            TreeNode left;
+            TreeNode right;
+            TreeNode(int x){
+                info = x;
+            }
+            TreeNode(int x, TreeNode lNode, TreeNode rNode){
+                info = x;
+         	  left = lNode;
+            }
     }
