@@ -12,17 +12,17 @@ public class PathSum {
 		return 0;
 	}
     }
-//        public class TreeNode {
-//            int info;
-//            TreeNode left;
-//            TreeNode right;
-//            TreeNode(int x){
-//                info = x;
-//            }
-//            TreeNode(int x, TreeNode lNode, TreeNode rNode){
-//                info = x;
-//         	  left = lNode;
-//              w  right = rNode;
-//            }
-//        }
+        public class TreeNode {
+            int info;
+            TreeNode left;
+            TreeNode right;
+            TreeNode(int x){
+                info = x;
+            }
+            TreeNode(int x, TreeNode lNode, TreeNode rNode){
+                info = x;
+         	  left = lNode;
+              right = rNode;
+            }
+        }
     }

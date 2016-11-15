@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class TreeCount {
         public int count(TreeNode tree) {
         	if (tree == null){
@@ -23,3 +21,4 @@ public class TreeCount {
          	  left = lNode;
             }
     }
+}
