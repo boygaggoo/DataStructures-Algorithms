@@ -5,15 +5,13 @@ public class Isomorphic {
 		
 		//check if left subtrees are same
 		boolean m = "same".equals(sameShape(s.left, t.left));
-		if(! m) return "different"; //or if(m == false0
+		if(!m) return "different";
 		boolean rr = "same".equals(sameShape(s.right, t.right));
         		if(! rr) return "different";
-
         		if(m && rr) return "same";
         		return  "different";
         	}
-        public class TreeNode {
-        	  
+        public class TreeNode {  
             int info;
             TreeNode left;
             TreeNode right;
@@ -21,7 +19,7 @@ public class Isomorphic {
                 info = x;
             }
             TreeNode(int x, TreeNode lNode, TreeNode rNode){
-                info = x;
+              info = x;
          	  left = lNode;
             }
     }

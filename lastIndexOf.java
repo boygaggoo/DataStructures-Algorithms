@@ -30,9 +30,4 @@ public class lastIndexOf {
     	    }
         return ans;
     }
-    public static void main(LinkedList args){
-  	  lastIndexOf cc = new lastIndexOf();
-      	int[] avail = {1,2,1,3,4};
-      	System.out.println(cc.lastIndexOf(avail));
-      }
 }
