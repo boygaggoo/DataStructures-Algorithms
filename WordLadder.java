@@ -13,17 +13,16 @@ public class WordLadder {
 		return false;
 	}
 	
-	 public String ladderExists(String[] words, 
-             String from, String to) {
-		 Queue<String> qu = new LinkedList<>();
-		 String current = "";
-		 qu.add(to);
-		 while (qu.size() != 0){
-			 current = qu.remove();
+	 public String ladderExists(String[] words, String from, String to) {
+		 Queue<String> q = new LinkedList<>();
+		 String current = ""; //create empty string
+		 q.add(to); //add to string to queue  
+		 while (q.size() != 0){
+			 current = q.remove(); //remove from front of queue
 			 for(String w:words){
-				 if (oneAway(current, w)) qu.add(w);
+				 if (oneAway(current, w)) q.add(w); //if current and any other word are one letter off, then add word to queue
 			 }
-			 if (oneAway(current, to)) return "ladder";
+			 if (oneAway(current, to)) return "ladder"; //see if you are one away from the end
 		 }
 		 return "none";
 	 }
