@@ -1,4 +1,5 @@
 public class BoggleScore {
+	//creates board and wherever first letter in word occurs it puts down a 1
 	public long[][] initial(char[][] board, char ch) {
 		long[][] scoreboard = new long[board.length][board[0].length];
 		for (int i = 0; i < board.length; i++) {
@@ -11,6 +12,7 @@ public class BoggleScore {
 
 	public static final long MOD = (long) 1e13;
 
+	//calculates sum of 8 possible neighbors
 	private long neighborsum(long[][] scoreboard, int r, int c) {
 		int[] dRow = { -1, -1, -1, 0, 0, 1, 1, 1 };
 		int[] dCol = { -1, 0, 1, -1, 1, -1, 0, 1 };
@@ -24,7 +26,7 @@ public class BoggleScore {
 		}
 		return sum;
 	}
-
+	//updates the position with the wanted character with the sum of its 8 possible neighbors
 	private long[][] updateGrid(long[][] grid, char[][] board, char ch) {
 
 		long[][] newGrid = new long[4][4];
@@ -40,6 +42,7 @@ public class BoggleScore {
 
 	public long bestScore(String[] grid, String[] words) {
 		long score = 0;
+		//makes 2 D array from list of strings
 		char[][] twod = new char[4][4];
 		for (int r = 0; r < 4; r++) {
 			for (int c = 0; c < 4; c++) {
@@ -53,16 +56,15 @@ public class BoggleScore {
 			long[][] firstGrid = initial(twod, s.charAt(0));
 
 			for (int ch = 1; ch < s.length(); ch++) {
-
 				firstGrid = updateGrid(firstGrid, twod, s.charAt(ch));
 			}
-
+			
+			//summing up values from updated grid
 			for (int r = 0; r < firstGrid.length; r++) {
 				for (int c = 0; c < firstGrid[r].length; c++) {
 					sum += firstGrid[r][c] % MOD;
 				}
 			}
-
 			score += (sum * (s.length() * s.length())) % MOD;
 		}
 		return score%MOD;

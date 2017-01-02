@@ -1,34 +1,23 @@
-import java.util.*;
 public class Tourney {
       public String winner(String[] bracket, String results) {
-    	  Queue<String> queue = new LinkedList<String>();
-    	  Queue<String> queueRes = new LinkedList<String>();
-    	  
-    	  //add to queue
-    	  for(int i=0;i<bracket.length;i++){
-    		  queue.add(bracket[i]);
-    	  }
-    	  String[] res = results.split(".");
-    	  for(int i=0; i<res.length;i++){
-    		  queueRes.add(res[i]);
-    	  }
-    	  //round 1
-    	  for(int i=0; i<bracket.length-1;i+=2){
-    		  if(bracket[i].equals("bye")||bracket[i+1].equals("bye")){
-    			  if(bracket[i].equals("bye")){
-    				  queue.remove(i);
-    			  }else{
-    				  queue.remove(i+1);
-    				  }
-    		  }else{
-    			  if(res[i].equals("H")){
-    				  queue.remove(i+1);
-    			  }
-    			  if(res[i+1].equals("L")){
-    				  queue.remove(i);
-    			  }
-    			  }
+    	  int numTeams = bracket.length; 
+    	  if(numTeams==1){ return bracket[0]; }
+    	  String[] nextRound = new String[numTeams/2]; 
+    	  String vic =""; 
+    	  String result; 
+    	  for(int i=0; i<numTeams; i+=2){
+    		  String team1 = bracket[i];
+    		  String team2 = bracket[i+1];
+    		  if(team1.equals("bye")) vic = team2;
+    		  else if(team2.equals("bye")) vic = team1;
+    		  else{
+    			  result = results.substring(0,1); 
+    			  results = results.substring(1);
+    			  if(result.equals("L")) vic = team2;
+    			  else if(result.equals("H")) vic = team1;
     		  }
-    	  return results;
+    		  nextRound[i/2] = vic; 
+    	  }
+    	  return winner(nextRound, results); 
       }
-   }
+}
